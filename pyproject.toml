@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "easyaiortc"
+version = "0.1.0"
+description = ""
+authors = ["wakewakame <0214.taiki@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+nest-asyncio = "^1.5.1"
+numpy = "^1.21.1"
+opencv-python = "^4.5.3"
+aiohttp = "^3.7.4"
+aiortc = "^1.2.1"
+websockets = "^9.1"
+ipython = "^7.26.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

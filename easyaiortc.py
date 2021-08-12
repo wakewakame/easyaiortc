@@ -41,8 +41,7 @@ class CustomVideoStreamTrack(VideoStreamTrack):
                     # 受信した映像をキューに追加
                     self.recv_queue.put_nowait(img)
                 except queue.Full:
-                    # イベントループの他の処理を妨げないようにする
-                    await asyncio.sleep(0)
+                    pass
         asyncio.Task(recv_frame())
 
     async def recv(self):
@@ -54,7 +53,7 @@ class CustomVideoStreamTrack(VideoStreamTrack):
                     self.last_image = self.send_queue.get_nowait()
                 except queue.Empty:
                     # イベントループの他の処理を妨げないようにする
-                    await asyncio.sleep(0)
+                    await asyncio.sleep(0.1)
         else:
             try:
                 # 映像送信キューから画像を取得
